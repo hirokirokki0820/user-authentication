@@ -1,27 +1,56 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= form_with(model: user, class: "ui form segment error", id: "signup-form") do |form| %>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class="ui error message"></div>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
+  <div class="field <%= 'error' if user.errors.include?(:name) %>">
+    <%= form.label :name %>
     <%= form.text_field :name %>
+    <% if user.errors.include?(:name) %>
+      <div class="ui basic red pointing prompt label transition visible">
+        <% user.errors.full_messages_for(:name).each do |error| %>
+          <li style="list-style:none"><%= error %></li>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
+  <div class="field <%= 'error' if user.errors.include?(:email) %>">
+    <%= form.label :email %>
     <%= form.text_field :email %>
+    <% if user.errors.include?(:email) %>
+      <div class="ui basic red pointing prompt label transition visible">
+        <% user.errors.full_messages_for(:email).each do |error| %>
+          <li style="list-style:none"><%= error %></li>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field <%= 'error' if user.errors.include?(:password) %>">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+    <% if user.errors.include?(:password) %>
+      <div class="ui basic red pointing prompt label transition visible">
+        <% user.errors.full_messages_for(:password).each do |error| %>
+          <li style="list-style:none"><%= error %></li>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="field <%= 'error' if user.errors.include?(:password_confirmation) %>">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+    <% if user.errors.include?(:password_confirmation) %>
+      <div class="ui basic red pointing prompt label transition visible">
+        <% user.errors.full_messages_for(:password).each do |error| %>
+          <li style="list-style:none"><%= error %></li>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: "ui primary submit button" %>
   </div>
 <% end %>
