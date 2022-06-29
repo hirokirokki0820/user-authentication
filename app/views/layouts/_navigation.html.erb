@@ -6,6 +6,7 @@
   <a class="item">Careers</a>
   <a class="item">Login</a>
   <a class="item">Signup</a>
+  <%= link_to "Signup", new_user_path, class: "item" %>
 </div>
 
 <!-- Page Contents -->
@@ -23,7 +24,7 @@
         <a class="item">Careers</a>
         <div class="right item">
           <a class="ui inverted button">Log in</a>
-          <a class="ui inverted button">Sign Up</a>
+          <%= link_to "Sign up", new_user_path, class: "ui inverted button" %>
         </div>
       </div>
     </div>
