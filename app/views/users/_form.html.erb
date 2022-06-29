@@ -1,10 +1,12 @@
-<%= form_with(model: user, class: "ui form segment error", id: "signup-form") do |form| %>
+<%= form_with(model: user, class: "ui form  segment", id: "signup-form") do |form| %>
 
-  <div class="ui error message"></div>
-
-  <div class="field <%= 'error' if user.errors.include?(:name) %>">
+  <div class="field <%= user.errors.include?(:name) ? 'error' : '' %>">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="ui left icon input">
+      <i class="user icon"></i>
+      <%= form.text_field :name, placeholder: "ユーザー名" %>
+    </div>
+
     <% if user.errors.include?(:name) %>
       <div class="ui basic red pointing prompt label transition visible">
         <% user.errors.full_messages_for(:name).each do |error| %>
@@ -14,9 +16,12 @@
     <% end %>
   </div>
 
-  <div class="field <%= 'error' if user.errors.include?(:email) %>">
+  <div class="field <%= user.errors.include?(:email) ? 'error' : '' %>">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <div class="ui left icon input">
+      <i class="envelope icon"></i>
+      <%= form.text_field :email, placeholder: "メールアドレス" %>
+    </div>
     <% if user.errors.include?(:email) %>
       <div class="ui basic red pointing prompt label transition visible">
         <% user.errors.full_messages_for(:email).each do |error| %>
@@ -28,7 +33,10 @@
 
   <div class="field <%= 'error' if user.errors.include?(:password) %>">
     <%= form.label :password %>
-    <%= form.password_field :password %>
+    <div class="ui left icon input">
+      <i class="lock icon"></i>
+      <%= form.password_field :password, placeholder: "パスワード" %>
+    </div>
     <% if user.errors.include?(:password) %>
       <div class="ui basic red pointing prompt label transition visible">
         <% user.errors.full_messages_for(:password).each do |error| %>
@@ -40,7 +48,10 @@
 
   <div class="field <%= 'error' if user.errors.include?(:password_confirmation) %>">
     <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <div class="ui left icon input">
+      <i class="lock icon"></i>
+      <%= form.password_field :password_confirmation, placeholder: "パスワード（確認用）" %>
+    </div>
     <% if user.errors.include?(:password_confirmation) %>
       <div class="ui basic red pointing prompt label transition visible">
         <% user.errors.full_messages_for(:password_confirmation).each do |error| %>

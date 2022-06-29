@@ -1,2 +1,6 @@
 // Semantic UI のCSS読み込み
 @import 'semantic-ui';
+
+.field_with_errors {
+  display: contents;
+}
