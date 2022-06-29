@@ -6,7 +6,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "jquery"
-// import "jquery-validation-rails"
+import "jquery-validation-rails"
 
 /* jquery (turbo:load) */
 $(document).on("turbo:load", function() {
