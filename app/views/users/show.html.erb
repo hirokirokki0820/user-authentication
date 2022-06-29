@@ -1,10 +1,50 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @user %>
+<div class="ui middle aligned grid mt15">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <i class="user icon"></i>
+      <div class="content">
+        プロフィール詳細
+      </div>
+    </h2>
 
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
+    <div class="ui card">
+      <div class="image">
+        <img src="/assets/user.png">
+      </div>
+      <div class="content">
+        <p class="header"><%= @user.name %></p>
+        <div class="meta">
+          <p>よろしくお願いしま〜〜〜すぅ！</p>
+        </div>
+      </div>
+    </div>
 
-  <%= button_to "Destroy this user", @user, method: :delete %>
+    <div class="ui ">
+      <div class="ui card">
+        <%= render @user %>
+        <div class="extra content">
+          <div class="ui two buttons">
+            <%= link_to edit_user_path(@user), class: "ui inverted green button" do %>
+              <i class="icon edit"></i>
+              編集する
+            <% end %>
+            <%= link_to @user, class: "ui inverted red button", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
+              <i class="icon trash alternate"></i>
+              削除する
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <%= link_to users_path, class: "ui button" do %>
+          <i class="icon arrow alternate circle left"></i>
+          戻る
+        <% end %>
+      </div>
+    </div>
+
+  </div>
 </div>

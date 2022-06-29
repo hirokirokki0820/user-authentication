@@ -1,12 +1,13 @@
-<div id="<%= dom_id user %>">
-  <p>
-    <strong>Name:</strong>
-    <%= user.name %>
-  </p>
+<div id="<%= dom_id user %>" class="content">
 
-  <p>
-    <strong>Email:</strong>
-    <%= user.email %>
-  </p>
-
+      <img class="right floated mini ui image" src="/assets/user.png">
+      <div class="header">
+        <%= user.name %>
+      </div>
+      <div class="meta">
+        Friends of Veronika
+      </div>
+      <div class="description">
+        Elliot requested permission to view your contact details
+      </div>
 </div>

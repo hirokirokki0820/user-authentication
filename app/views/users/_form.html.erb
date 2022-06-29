@@ -43,7 +43,7 @@
     <%= form.password_field :password_confirmation %>
     <% if user.errors.include?(:password_confirmation) %>
       <div class="ui basic red pointing prompt label transition visible">
-        <% user.errors.full_messages_for(:password).each do |error| %>
+        <% user.errors.full_messages_for(:password_confirmation).each do |error| %>
           <li style="list-style:none"><%= error %></li>
         <% end %>
       </div>
@@ -51,6 +51,20 @@
   </div>
 
   <div>
-    <%= form.submit class: "ui primary submit button" %>
+    <%= form.submit class: "ui teal submit button" %>
+    <% if !user.new_record? %>
+      <%= link_to "キャンセル", user_path,  class: "ui button" %>
+    <% else %>
+      <%= link_to "キャンセル", users_path,  class: "ui button" %>
+    <% end %>
   </div>
+
+  <%# if user.errors.any? %>
+<!--    <div class="ui error message"> -->
+      <%# user.errors.each do |error| %>
+<!--        <li><%#= error.full_message %></li> -->
+      <%# end %>
+<!--     </div>  -->
+  <%# end %>
+
 <% end %>

@@ -11,9 +11,14 @@
   </head>
 
   <body>
-    <div class="ui container">
-      <%= yield %>
-      <br><%= debug(params) if Rails.env.development? %>
-    </div>
+    <%= render 'layouts/navigation' %>
+      <div class="ui container">
+        <%= yield %>
+
+        <div class="ui segment">
+          <%= debug(params) if Rails.env.development? %>
+        </div>
+      </div>
+    </div> <!-- <div class="pusher"> と対応 -->
   </body>
 </html>

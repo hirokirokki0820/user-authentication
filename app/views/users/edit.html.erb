@@ -1,10 +1,13 @@
-<h1>Editing user</h1>
+<div class="ui middle aligned grid mt15">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <i class="user icon"></i>
+      <div class="content">
+        プロフィール編集画面
+      </div>
+    </h2>
 
-<%= render "form", user: @user %>
+    <%= render "form", user: @user %>
 
-<br>
-
-<div>
-  <%= link_to "Show this user", @user %> |
-  <%= link_to "Back to users", users_path %>
+  </div>
 </div>
