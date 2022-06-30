@@ -66,5 +66,11 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "password should be confirmed" do
+    @user.password = "a" * 10
+    @user.password_confirmation = "b"* 10
+    assert_not @user.valid?
+  end
+
 
 end
