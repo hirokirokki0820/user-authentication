@@ -16,6 +16,15 @@ $(document).on("turbo:load", function() {
   /* アコーディオン */
   $('.ui.accordion').accordion();
 
+  /* フラッシュメッセージの閉じるボタン */
+  // (turbo:render) パートでは必要ない
+    $('.message .close').on('click', function() {
+      $(this)
+        .closest('.message')
+        .transition('fade')
+      ;
+    });
+
   // fix menu when passed
   $('.masthead')
     .visibility({
