@@ -36,6 +36,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     # showページの指定タグ内にユーザー名が表示されているかを確認
     assert_select "p.header", "test user"
     assert_select "div.ui.card>.content>.header", "test user"
+    # showページにフラッシュメッセージが表示されているかを確認
     assert_select "div.ui.message.success"
   end
 
