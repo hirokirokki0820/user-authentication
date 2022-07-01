@@ -1,12 +1,12 @@
 <!-- Sidebar Menu -->
 <div class="ui vertical inverted sidebar menu">
-  <a class="active item">Home</a>
+  <%= link_to "ホーム", root_path, class: "active item" %>
   <a class="item">Work</a>
   <a class="item">Company</a>
   <a class="item">Careers</a>
   <a class="item">Login</a>
   <a class="item">Signup</a>
-  <%= link_to "Signup", new_user_path, class: "item" %>
+  <%= link_to "Signup", signup_path, class: "item" %>
 </div>
 
 <!-- Page Contents -->
@@ -18,13 +18,13 @@
         <a class="toc item">
           <i class="sidebar icon"></i>
         </a>
-        <a class="active item">Home</a>
-        <a class="item">Work</a>
+        <%= link_to "ホーム", root_path, class: "active item" %>
+        <%= link_to "利用者一覧", users_path, class: "item" %>
         <a class="item">Company</a>
         <a class="item">Careers</a>
         <div class="right item">
-          <a class="ui inverted button">Log in</a>
-          <%= link_to "Sign up", new_user_path, class: "ui inverted button" %>
+          <%= link_to "Log in", login_path, class: "ui inverted button" %>
+          <%= link_to "Sign up", signup_path, class: "ui inverted button" %>
         </div>
       </div>
     </div>

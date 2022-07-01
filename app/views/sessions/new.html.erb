@@ -1,0 +1,44 @@
+<div class="ui middle aligned grid mt15">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <i class="user icon"></i>
+      <div class="content">
+        ログイン
+      </div>
+    </h2>
+
+
+<%= form_with(scope: :session, url: login_path, local: true, class: "ui form segment", id: "login_form") do |form| %>
+
+  <div class="field <%#= user.errors.include?(:email) ? 'error' : '' %>">
+    <%= form.label "メールアドレス" %>
+    <div class="ui left icon input">
+      <i class="envelope icon"></i>
+      <%= form.email_field :email, placeholder: "メールアドレス" %>
+    </div>
+    <%#= render 'shared/error_messages', obj: user, key: :email %>
+  </div>
+
+  <div class="field <%#= user.errors.include?(:password) ? 'error' : '' %>">
+    <%= form.label "パスワード" %>
+    <div class="ui left icon input">
+      <i class="lock icon"></i>
+      <%= form.password_field :password, placeholder: "パスワード" %>
+    </div>
+    <%#= render 'shared/error_messages', obj: user, key: :password %>
+  </div>
+
+  <div>
+    <%= form.submit "ログイン", class: "ui teal submit button" %>
+
+  </div>
+
+<% end %>
+
+
+
+    <div class="ui message">
+      アカウントをお持ちでないですか？ <%= link_to "アカウント新規作成", signup_path %>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   # 新規ユーザー登録用の統合テスト
   # ユーザー登録時に（ユーザー情報が無効であるために）ユーザーが作成されないことを確認する
   test "invalid signup information" do
-    get new_user_path
+    get signup_path
     assert_no_difference 'User.count' do
       # users_pathに対してポストリクエストを送信する
       post users_path, params:
@@ -13,7 +13,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                               password: "foo",
                               password_confirmation: "bar" } }
     end
-    # エラー発生時に new_user_path をレンダリングしているかどうか
+    # エラー発生時に signup_path をレンダリングしているかどうか
     assert_template "users/new"
     # エラー発生時に error クラスが追加されているかどうか
     assert_select 'div.field.error'
@@ -21,7 +21,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
   # ユーザー登録時にユーザーが作成されることを確認する
   test "valid signup information" do
-    get new_user_path
+    get signup_path
     assert_difference 'User.count', 1 do
       post users_path, params: { user:
                     { name: 'test user',

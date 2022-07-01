@@ -13,7 +13,7 @@
     <%= form.label :email %>
     <div class="ui left icon input">
       <i class="envelope icon"></i>
-      <%= form.text_field :email, placeholder: "メールアドレス" %>
+      <%= form.email_field :email, placeholder: "メールアドレス" %>
     </div>
     <%= render 'shared/error_messages', obj: user, key: :email %>
   </div>
@@ -38,7 +38,7 @@
 
   <div>
     <%= form.submit class: "ui teal submit button" %>
-    <%= link_to "キャンセル", !user.new_record? ? user_path : users_path,  class: "ui button" %>
+    <%= link_to "キャンセル", !user.new_record? ? user_path : root_path,  class: "ui button" %>
   </div>
 
   <%# if user.errors.any? %>
