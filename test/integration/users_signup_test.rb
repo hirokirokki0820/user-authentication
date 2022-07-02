@@ -33,10 +33,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
     assert_template "users/show"
-    # showページの指定タグ内にユーザー名が表示されているかを確認
+    # ユーザー登録後にログインできているかをテスト
+    assert is_logged_in?
+    # showページの指定タグ内にユーザー名が表示されているかをテスト
     assert_select "p.header", "test user"
     assert_select "div.ui.card>.content>.header", "test user"
-    # showページにフラッシュメッセージが表示されているかを確認
+    # showページにフラッシュメッセージが表示されているかをテスト
     assert_select "div.ui.message.success"
   end
 

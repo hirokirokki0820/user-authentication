@@ -24,7 +24,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
-        format.html { redirect_to user_url(@user), notice: "ユーザーアカウントの登録に成功しました。" }
+        log_in @user
+        format.html { redirect_to user_url(@user), notice: "ようこそ、ユキヒーランドへ！" }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
