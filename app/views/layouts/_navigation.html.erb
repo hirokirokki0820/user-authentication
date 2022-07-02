@@ -19,12 +19,18 @@
           <i class="sidebar icon"></i>
         </a>
         <%= link_to "ホーム", root_path, class: "active item" %>
-        <%= link_to "利用者一覧", users_path, class: "item" %>
-        <a class="item">Company</a>
+        <% if logged_in? %>
+          <%= link_to "利用者一覧", users_path, class: "item" %>
+          <%= link_to "プロフィール", current_user, class: "item" %>
+        <% end %>
         <a class="item">Careers</a>
         <div class="right item">
-          <%= link_to "Log in", login_path, class: "ui inverted button" %>
-          <%= link_to "Sign up", signup_path, class: "ui inverted button" %>
+        <% if logged_in? %>
+            <%= link_to "Log out", logout_path, class: "ui inverted button", data: { turbo_method: :delete, turbo_confirm: " 本当にログアウトしますか？"} %>
+          <% else %>
+            <%= link_to "Log in", login_path, class: "ui inverted button" %>
+            <%= link_to "Sign up", signup_path, class: "ui inverted button" %>
+          <% end %>
         </div>
       </div>
     </div>
