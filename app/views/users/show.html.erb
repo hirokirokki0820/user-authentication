@@ -24,13 +24,15 @@
         <%= render @user %>
         <div class="extra content">
           <div class="ui two buttons">
-            <%= link_to edit_user_path(@user), class: "ui inverted green button" do %>
-              <i class="icon edit"></i>
-              編集する
-            <% end %>
-            <%= link_to @user, class: "ui inverted red button", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
-              <i class="icon trash alternate"></i>
-              削除する
+            <% if logged_in? && @user == current_user %>
+              <%= link_to edit_user_path(@user), class: "ui inverted green button" do %>
+                <i class="icon edit"></i>
+                編集する
+              <% end %>
+              <%= link_to @user, class: "ui inverted red button", data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } do %>
+                <i class="icon trash alternate"></i>
+                削除する
+              <% end %>
             <% end %>
           </div>
         </div>
