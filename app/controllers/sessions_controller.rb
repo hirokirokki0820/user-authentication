@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     # if user && user.authenticate(params[:session][:password])
     if user&.authenticate(params[:session][:password]) # ぼっち演算子「&.」
-      log_in(user)
+      log_in user
+      remember user
       flash[:notice] = "ログインに成功しました"
       redirect_to user
     else
