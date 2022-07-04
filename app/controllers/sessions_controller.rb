@@ -6,8 +6,9 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     # if user && user.authenticate(params[:session][:password])
     if user&.authenticate(params[:session][:password]) # ぼっち演算子「&.」
-      log_in user
-      remember user
+      log_in(user)
+      # remember_me にチェックしたらユーザーのセッションを永続的にする(cookieに保存する)
+      params[:session][:remember_me] == "1" ? remember(user) : forget(user)
       flash[:notice] = "ログインに成功しました"
       redirect_to user
     else

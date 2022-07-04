@@ -28,6 +28,13 @@
     <%#= render 'shared/error_messages', obj: user, key: :password %>
   </div>
 
+  <div class="field">
+    <div class="ui checkbox">
+      <%= form.check_box :remember_me %>
+      <%= form.label "ログインしたままにする" %>
+    </div>
+  </div>
+
   <div>
     <%= form.submit "ログイン", class: "ui teal submit button" %>
 
