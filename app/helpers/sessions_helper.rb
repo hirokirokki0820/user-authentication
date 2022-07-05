@@ -8,8 +8,11 @@ module SessionsHelper
   # ユーザーのセッションを永続的にする(cookieに保存する)
   def remember(user)
     user.remember
-    cookies.permanent.encrypted[:user_id] = user.id
-    cookies.permanent[:remember_token] = user.remember_token
+    # cookies.permanent.encrypted[:user_id] = user.id
+    # cookies.permanent[:remember_token] = user.remember_token
+    # cookies の有効期限を 1ヶ月 にしたい場合
+    cookies.encrypted[:user_id] = { value: user.id, expires: 1.month.from_now }
+    cookies[:remember_token] = { value: user.remember_token, expires: 1.month.from_now }
   end
 
   # 記憶トークンcookieに対応するユーザーを返す
