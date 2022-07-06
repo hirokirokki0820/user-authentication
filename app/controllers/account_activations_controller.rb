@@ -5,6 +5,7 @@ class AccountActivationsController < ApplicationController
       user.activate
       log_in user
       flash[:notice] = "アカウントが有効化されました"
+      redirect_to user
     else
       flash[:error] = "この有効化リンクは無効です"
       redirect_to root_url
