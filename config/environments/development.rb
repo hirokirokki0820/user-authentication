@@ -54,6 +54,18 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
+  # Gmail の場合
+  # config.action_mailer.smtp_settings = {
+  #   :enable_starttls_auto => true,
+  #   :address => "smtp.gmail.com",
+  #   :port => 587,
+  #   :domain => 'smtp.gmail.com',
+  #   :user_name => ENV['GMAIL_ADDRESS'],
+  #   :password => ENV['GMAIL_PASSWORD'],
+  #   :authentication => 'login'
+  # }
+
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

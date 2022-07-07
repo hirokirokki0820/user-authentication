@@ -25,6 +25,7 @@
       <i class="lock icon"></i>
       <%= form.password_field :password, placeholder: "パスワード" %>
     </div>
+    <%= link_to ">>パスワードをお忘れですか？", new_password_reset_path %>
     <%#= render 'shared/error_messages', obj: user, key: :password %>
   </div>
 

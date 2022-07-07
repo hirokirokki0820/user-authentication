@@ -68,6 +68,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
+  # SendGrid の場合
   config.action_mailer.smtp_settings = {
     :address => 'smtp.sendgrid.net',
     :port => 587,
@@ -77,6 +78,17 @@ Rails.application.configure do
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+
+  # Gmail の場合
+#   config.action_mailer.smtp_settings = {
+#   :enable_starttls_auto => true,
+#   :address => "smtp.gmail.com",
+#   :port => 587,
+#   :domain => 'smtp.gmail.com',
+#   :user_name => ENV['GMAIL_ADDRESS'],
+#   :password => ENV['GMAIL_PASSWORD'],
+#   :authentication => 'login'
+# }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
